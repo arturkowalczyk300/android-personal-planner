@@ -1,4 +1,4 @@
-package com.arturkowalczyk300.personalplanner.ui.theme
+package com.arturkowalczyk300.personalplanner.views.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle

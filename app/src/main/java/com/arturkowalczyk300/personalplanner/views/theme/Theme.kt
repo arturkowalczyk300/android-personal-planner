@@ -1,4 +1,4 @@
-package com.arturkowalczyk300.personalplanner.ui.theme
+package com.arturkowalczyk300.personalplanner.views.theme
 
 import android.app.Activity
 import android.os.Build
