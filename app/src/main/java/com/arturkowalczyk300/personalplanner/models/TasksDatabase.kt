@@ -24,7 +24,7 @@ abstract class TasksDatabase : RoomDatabase() {
                         context.applicationContext,
                         TasksDatabase::class.java,
                         DB_NAME
-                    ).build()
+                    ).allowMainThreadQueries().build()
 
                 return instance
             }

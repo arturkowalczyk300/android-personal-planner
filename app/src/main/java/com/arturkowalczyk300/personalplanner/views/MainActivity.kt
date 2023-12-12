@@ -12,6 +12,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.State
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
@@ -19,6 +20,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.arturkowalczyk300.personalplanner.models.TaskEntity
 import com.arturkowalczyk300.personalplanner.viewmodels.TasksViewModel
+import com.arturkowalczyk300.personalplanner.views.TasksList
 import com.arturkowalczyk300.personalplanner.views.theme.MyApplicationTheme
 
 class MainActivity : ComponentActivity() {
@@ -56,7 +58,7 @@ fun TasksFragment(viewModel: TasksViewModel) {
         Row(modifier = Modifier.weight(5f)) {
             val tasks: State<List<TaskEntity>>? = viewModel.tasks?.observeAsState(initial = emptyList())
             tasks?.let {
-                //TasksList(tasks!!)
+                TasksList(tasks)
             }
         }
         Row(modifier = Modifier.weight(1f)) {
