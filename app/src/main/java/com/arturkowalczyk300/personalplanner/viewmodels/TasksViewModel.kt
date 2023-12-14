@@ -2,6 +2,7 @@ package com.arturkowalczyk300.personalplanner.viewmodels
 
 import android.content.Context
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.arturkowalczyk300.personalplanner.models.TaskEntity
 import com.arturkowalczyk300.personalplanner.models.TasksRepository
@@ -9,10 +10,12 @@ import kotlin.random.Random
 
 class TasksViewModel : ViewModel() {
     private val repository = TasksRepository()
-    val tasks: LiveData<List<TaskEntity>>? = repository.getAllTasks()
+    private var _tasks = MutableLiveData<List<TaskEntity>>()
+    val tasks: LiveData<List<TaskEntity>> = _tasks
 
     fun initDatabase(ctx: Context) {
         repository.initDatabase(ctx)
+        observeData()
     }
 
     fun actionAddRandomTask() {
@@ -33,5 +36,12 @@ class TasksViewModel : ViewModel() {
 
     fun actionRefresh() {
 
+    }
+
+    private fun observeData()
+    {
+        repository.getAllTasks()?.observeForever {
+            _tasks.value = it
+        }
     }
 }

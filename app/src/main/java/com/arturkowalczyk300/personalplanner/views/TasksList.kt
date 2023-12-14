@@ -8,9 +8,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.arturkowalczyk300.personalplanner.models.TaskEntity
 
 @Composable
-fun TasksList(data: State<List<TaskEntity>>) {
+fun TasksList(tasks: State<List<TaskEntity>?>) {
     LazyColumn {
-        items(data.value) {
+        items(tasks.value!!) {
             TaskItem(
                 isFinished = it.isFinished,
                 priority = it.priority,
