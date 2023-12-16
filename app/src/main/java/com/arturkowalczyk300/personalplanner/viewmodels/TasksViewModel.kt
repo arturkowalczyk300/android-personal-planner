@@ -31,11 +31,7 @@ class TasksViewModel : ViewModel() {
     }
 
     fun actionDeleteAllTasks() {
-
-    }
-
-    fun actionRefresh() {
-
+        repository.deleteAllTasks()
     }
 
     private fun observeData()

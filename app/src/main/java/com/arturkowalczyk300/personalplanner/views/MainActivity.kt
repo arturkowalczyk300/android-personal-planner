@@ -76,9 +76,6 @@ fun TasksFragment(viewModel: TasksViewModel) {
             Button(onClick = { viewModel.actionDeleteAllTasks() }) {
                 Text("Delete all")
             }
-            Button(onClick = { viewModel.actionRefresh() }) {
-                Text("Refresh")
-            }
         }
     }
 }
